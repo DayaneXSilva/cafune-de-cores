@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Rules
+- Product catalog (ids, prices, priceIds) lives in src/lib/products.ts; paid PDF links never ship in client code — deliver only after server-side payment confirmation.
