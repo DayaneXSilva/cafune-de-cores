@@ -26,7 +26,7 @@ export const products: Product[] = [
     skills: ["Coordenação motora fina", "Controle do lápis", "Atenção"],
     tone: "lilas",
     priceId: null,
-    price: null,
+    price: 1490,
   },
   {
     id: "kit-alfabetizacao",
@@ -38,7 +38,7 @@ export const products: Product[] = [
     skills: ["Consciência fonológica", "Letras e vogais", "Primeiras palavras"],
     tone: "rosa",
     priceId: null,
-    price: null,
+    price: 1490,
   },
   {
     id: "contando-com-o-cafu",
@@ -50,7 +50,7 @@ export const products: Product[] = [
     skills: ["Números e quantidades", "Sequências", "Raciocínio lógico"],
     tone: "azul",
     priceId: null,
-    price: null,
+    price: 1490,
   },
   {
     id: "cores-e-formas",
@@ -62,7 +62,7 @@ export const products: Product[] = [
     skills: ["Cores e misturas", "Formas geométricas", "Classificação"],
     tone: "tiffany",
     priceId: null,
-    price: null,
+    price: 1490,
   },
   {
     id: "jogos-do-cafu",
@@ -74,7 +74,7 @@ export const products: Product[] = [
     skills: ["Memória", "Convivência", "Atenção"],
     tone: "lilas-bebe",
     priceId: null,
-    price: null,
+    price: 1490,
   },
   {
     id: "meu-mundo-cafune",
@@ -86,7 +86,7 @@ export const products: Product[] = [
     skills: ["Emoções e identidade", "Autocuidado", "Natureza e rotina"],
     tone: "tiffany-azul",
     priceId: null,
-    price: null,
+    price: 1490,
   },
 ];
 
@@ -96,7 +96,7 @@ export const kit = {
   // O kit só é oferecido quando houver checkout e entrega configurados.
   enabled: false,
   priceId: null as string | null,
-  price: null as number | null,
+  price: 4990 as number | null,
 };
 
 export const totalPages = products.reduce((s, p) => s + p.pages, 0);
