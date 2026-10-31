@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import logo from "@/assets/logo-horizontal-cor.webp.asset.json";
 import { products, track } from "@/lib/products";
 
-type Search = { produto?: string };
+type Search = { produto: string };
 
 export const Route = createFileRoute("/obrigado")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    produto: typeof s.produto === "string" ? s.produto : undefined,
+    produto: typeof s["produto"] === "string" ? (s["produto"] as string) : "",
   }),
   head: () => ({
     meta: [
