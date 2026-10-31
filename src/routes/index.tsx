@@ -6,6 +6,7 @@ import {
   Hand, Plus,
 } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
+import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import logoH from "@/assets/logo-horizontal-cor.webp.asset.json";
 import logoV from "@/assets/logo-vertical-cor.png.asset.json";
 import { Placeholder } from "@/components/landing/Placeholder";
@@ -43,6 +44,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <Toaster position="top-center" />
+      <PaymentTestModeBanner />
       <DigitalBanner />
       <Header />
       <main>
