@@ -343,7 +343,7 @@ const SAMPLES_PER_BOOK = 3;
 function Peek() {
   const [vol, setVol] = useState(0);
   const [zoom, setZoom] = useState<number | null>(null);
-  const p = products[vol];
+  const p = products[vol] ?? products[0]!;
   return (
     <section id="por-dentro" className="scroll-mt-24 py-20">
       <div className="mx-auto max-w-6xl px-4">
