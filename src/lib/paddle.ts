@@ -23,7 +23,18 @@ export function initializePaddle() {
     script.src = "https://cdn.paddle.com/paddle/v2/paddle.js";
     script.onload = () => {
       window.Paddle.Environment.set(getPaddleEnvironment() === "sandbox" ? "sandbox" : "production");
-      window.Paddle.Initialize({ token: clientToken });
+      window.Paddle.Initialize({
+        token: clientToken,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        eventCallback: (ev: any) => {
+          if (ev?.name === "checkout.completed" && ev.data?.transaction_id) {
+            const produto = ev.data?.custom_data?.productId ?? "";
+            setTimeout(() => {
+              window.location.href = `/obrigado?produto=${encodeURIComponent(produto)}&pedido=${encodeURIComponent(ev.data.transaction_id)}`;
+            }, 1500);
+          }
+        },
+      });
       resolve();
     };
     script.onerror = () => { ready = null; reject(new Error("Falha ao carregar o pagamento")); };
@@ -45,7 +56,6 @@ export async function openCheckout(priceId: string, productId: string) {
     settings: {
       displayMode: "overlay",
       locale: "pt",
-      successUrl: `${window.location.origin}/obrigado?produto=${encodeURIComponent(productId)}`,
       allowLogout: false,
       variant: "one-page",
     },
