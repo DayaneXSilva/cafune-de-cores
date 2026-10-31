@@ -10,6 +10,7 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import logoH from "@/assets/logo-horizontal-cor.webp.asset.json";
 import logoV from "@/assets/logo-vertical-cor.png.asset.json";
 import { Placeholder } from "@/components/landing/Placeholder";
+import { covers } from "@/lib/covers";
 import { BuyButton } from "@/components/landing/BuyButton";
 import { products, kit, totalPages, toneClass, formatPrice, track, type Product } from "@/lib/products";
 import { cn } from "@/lib/utils";
@@ -168,7 +169,7 @@ function Hero() {
           <div className="relative grid grid-cols-3 gap-3 sm:gap-4">
             {products.map((p, i) => (
               <div key={p.id} className="animate-floaty" style={{ animationDelay: `${i * 0.4}s`, ["--r" as string]: `${(i % 2 ? 2 : -2)}deg` }}>
-                <Placeholder label={`Capa Vol. ${p.volume}`} className={cn("aspect-[3/4] rounded-2xl shadow-soft", toneClass[p.tone])} />
+                <img src={covers[p.id]} alt={`Capa do livro Vol. ${p.volume} — ${p.title}`} width={496} height={702} className="aspect-[210/297] w-full rounded-2xl border-2 border-grafite object-cover shadow-soft" />
               </div>
             ))}
           </div>
@@ -184,7 +185,7 @@ function ProductCard({ p, onDetails }: { p: Product; onDetails: () => void }) {
   return (
     <article className="flex flex-col overflow-hidden rounded-[2rem] border-2 border-grafite bg-card shadow-soft transition-transform hover:-translate-y-1">
       <div className={cn("p-5", toneClass[p.tone])}>
-        <Placeholder label={`Capa — ${p.title}`} className="mx-auto aspect-[3/4] w-3/4 rounded-xl" />
+        <img src={covers[p.id]} alt={`Capa do livro ${p.title}`} loading="lazy" width={496} height={702} className="mx-auto aspect-[210/297] w-3/4 rounded-xl border-2 border-grafite object-cover shadow-soft" />
       </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="flex items-center justify-between gap-2">
@@ -232,7 +233,7 @@ function Collection() {
       {detail && (
         <Modal onClose={() => setDetail(null)} label={detail.title}>
           <div className="grid gap-6 sm:grid-cols-[180px_1fr]">
-            <Placeholder label={`Capa — ${detail.title}`} className={cn("aspect-[3/4] rounded-xl", toneClass[detail.tone])} />
+            <img src={covers[detail.id]} alt={`Capa do livro ${detail.title}`} width={496} height={702} className="aspect-[210/297] w-full rounded-xl border-2 border-grafite object-cover" />
             <div>
               <span className="font-display text-sm font-semibold text-lavanda">VOLUME {detail.volume} · DIGITAL • PDF</span>
               <h3 className="mt-1 font-display text-2xl font-bold">{detail.title}</h3>
