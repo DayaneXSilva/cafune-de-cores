@@ -25,7 +25,7 @@ export const products: Product[] = [
       "Traçados, curvas, labirintos, recortes e atividades para desenvolver a coordenação motora fina, o controle dos movimentos e a confiança ao usar o lápis.",
     skills: ["Coordenação motora fina", "Controle do lápis", "Atenção"],
     tone: "lilas",
-    priceId: null,
+    priceId: "maozinhas_magicas_pdf",
     price: 1490,
   },
   {
@@ -37,7 +37,7 @@ export const products: Product[] = [
       "Uma descoberta divertida dos sons, rimas, sílabas, vogais, letras e primeiras palavras, com atividades que respeitam o ritmo da criança.",
     skills: ["Consciência fonológica", "Letras e vogais", "Primeiras palavras"],
     tone: "rosa",
-    priceId: null,
+    priceId: "kit_alfabetizacao_pdf",
     price: 1490,
   },
   {
@@ -49,7 +49,7 @@ export const products: Product[] = [
       "Brincadeiras com números, quantidades, sequências, comparações e pequenos desafios de raciocínio matemático.",
     skills: ["Números e quantidades", "Sequências", "Raciocínio lógico"],
     tone: "azul",
-    priceId: null,
+    priceId: "contando_com_o_cafu_pdf",
     price: 1490,
   },
   {
@@ -61,7 +61,7 @@ export const products: Product[] = [
       "Atividades para reconhecer cores, experimentar misturas, identificar formas geométricas, classificar e criar figuras.",
     skills: ["Cores e misturas", "Formas geométricas", "Classificação"],
     tone: "tiffany",
-    priceId: null,
+    priceId: "cores_e_formas_pdf",
     price: 1490,
   },
   {
@@ -73,7 +73,7 @@ export const products: Product[] = [
       "Jogos da memória, dominós, bingos, tabuleiros e quebra-cabeças para estimular atenção, convivência e aprendizagem em família.",
     skills: ["Memória", "Convivência", "Atenção"],
     tone: "lilas-bebe",
-    priceId: null,
+    priceId: "jogos_do_cafu_pdf",
     price: 1490,
   },
   {
@@ -85,7 +85,7 @@ export const products: Product[] = [
       "Atividades sobre emoções, identidade, família, autocuidado, natureza, rotina e descobertas do mundo ao redor.",
     skills: ["Emoções e identidade", "Autocuidado", "Natureza e rotina"],
     tone: "tiffany-azul",
-    priceId: null,
+    priceId: "meu_mundo_cafune_pdf",
     price: 1490,
   },
 ];
@@ -94,8 +94,8 @@ export const kit = {
   id: "colecao-completa",
   title: "Coleção completa Cafuné Brinca e Aprende",
   // O kit só é oferecido quando houver checkout e entrega configurados.
-  enabled: false,
-  priceId: null as string | null,
+  enabled: true,
+  priceId: "colecao_completa_pdf" as string | null,
   price: 4990 as number | null,
 };
 

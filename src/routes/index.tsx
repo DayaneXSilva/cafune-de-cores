@@ -6,6 +6,7 @@ import {
   Hand, Plus,
 } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
+import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import logoH from "@/assets/logo-horizontal-cor.webp.asset.json";
 import logoV from "@/assets/logo-vertical-cor.png.asset.json";
 import { Placeholder } from "@/components/landing/Placeholder";
@@ -43,6 +44,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <Toaster position="top-center" />
+      <PaymentTestModeBanner />
       <DigitalBanner />
       <Header />
       <main>
@@ -341,7 +343,7 @@ const SAMPLES_PER_BOOK = 3;
 function Peek() {
   const [vol, setVol] = useState(0);
   const [zoom, setZoom] = useState<number | null>(null);
-  const p = products[vol];
+  const p = products[vol] ?? products[0]!;
   return (
     <section id="por-dentro" className="scroll-mt-24 py-20">
       <div className="mx-auto max-w-6xl px-4">
