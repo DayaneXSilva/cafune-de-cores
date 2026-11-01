@@ -6,7 +6,7 @@ export type Download = { productId: string; title: string; url: string; filename
 
 /** Confere a transação no Paddle e só então devolve os links dos PDFs comprados. */
 export const getDownloads = createServerFn({ method: "POST" })
-  .inputValidator((d: { txn: string; environment: PaddleEnv }) => {
+  .validator((d: { txn: string; environment: PaddleEnv }) => {
     if (typeof d?.txn !== "string" || !/^txn_[a-z0-9]+$/i.test(d.txn)) throw new Error("Pedido inválido");
     if (d.environment !== "sandbox" && d.environment !== "live") throw new Error("Ambiente inválido");
     return d;
