@@ -11,6 +11,7 @@ import logoH from "@/assets/logo-horizontal-cor.webp.asset.json";
 import logoV from "@/assets/logo-vertical-cor.png.asset.json";
 import { Placeholder } from "@/components/landing/Placeholder";
 import { covers } from "@/lib/covers";
+import { previews } from "@/lib/previews";
 import { BuyButton } from "@/components/landing/BuyButton";
 import { products, kit, totalPages, toneClass, formatPrice, track, type Product } from "@/lib/products";
 import { cn } from "@/lib/utils";
@@ -367,7 +368,7 @@ function Peek() {
           <div className="mt-6 grid gap-5 sm:grid-cols-3">
             {Array.from({ length: SAMPLES_PER_BOOK }).map((_, i) => (
               <button key={i} onClick={() => setZoom(i)} aria-label={`Ampliar página de amostra ${i + 1}`} className="group relative rounded-2xl transition-transform hover:-translate-y-1">
-                <Placeholder label={`Prévia ${i + 1}`} className="aspect-[210/297] rounded-2xl bg-card" />
+                <img src={previews[p.id]?.[i]} alt={`Página de amostra ${i + 1} de ${p.title}`} loading="lazy" width={579} height={819} className="aspect-[210/297] w-full rounded-2xl border-2 border-grafite bg-card object-cover shadow-soft" />
                 <Plus className="absolute right-3 top-3 h-6 w-6 rounded-full bg-grafite p-1 text-creme opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
               </button>
             ))}
@@ -381,7 +382,7 @@ function Peek() {
         <Modal onClose={() => setZoom(null)} label={`Prévia ${zoom + 1} de ${p.title}`}>
           <div className="flex items-center gap-3">
             <button aria-label="Prévia anterior" onClick={() => setZoom((zoom + SAMPLES_PER_BOOK - 1) % SAMPLES_PER_BOOK)} className="rounded-full border-2 border-grafite p-2"><ChevronLeft /></button>
-            <Placeholder label={`${p.title} — prévia ${zoom + 1}`} className="aspect-[210/297] flex-1 rounded-2xl" />
+            <img src={previews[p.id]?.[zoom]} alt={`Página de amostra ${zoom + 1} de ${p.title}`} className="aspect-[210/297] min-w-0 flex-1 rounded-2xl border-2 border-grafite object-contain" />
             <button aria-label="Próxima prévia" onClick={() => setZoom((zoom + 1) % SAMPLES_PER_BOOK)} className="rounded-full border-2 border-grafite p-2"><ChevronRight /></button>
           </div>
         </Modal>
