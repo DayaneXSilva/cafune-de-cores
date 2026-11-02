@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   BookOpen, ChevronLeft, ChevronRight, FileText, Heart, Menu, MessageCircle, Pencil, Printer,
@@ -481,7 +481,9 @@ function Footer() {
           </a>
         </nav>
         <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
-          {legal.map((l) => <li key={l}>{l} (em breve)</li>)}
+          <li><Link to="/privacidade" className="hover:underline">{legal[0]}</Link></li>
+          <li><Link to="/termos" className="hover:underline">{legal[1]}</Link></li>
+          <li><Link to="/reembolso" className="hover:underline">{legal[2]}</Link></li>
         </ul>
       </div>
       <p className="mt-10 text-center text-xs text-muted-foreground">© {new Date().getFullYear()} Cafuné de Cores</p>
