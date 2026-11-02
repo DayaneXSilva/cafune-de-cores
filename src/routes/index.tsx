@@ -471,7 +471,14 @@ function Footer() {
           <a href="#colecao" className="hover:text-sereno">Catálogo</a>
           <a href="#como-funciona" className="hover:text-sereno">Como funciona</a>
           <a href="#duvidas" className="hover:text-sereno">Dúvidas</a>
-          <span className="text-muted-foreground">Contato (em breve)</span>
+          <a
+            href="https://wa.me/5511951042381"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sereno hover:underline"
+          >
+            WhatsApp: +55 11 95104-2381
+          </a>
         </nav>
         <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
           {legal.map((l) => <li key={l}>{l} (em breve)</li>)}
