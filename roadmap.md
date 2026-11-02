@@ -5,3 +5,9 @@
 - [x] Checkout com Lovable Payments (7 produtos)
 - [x] Entrega protegida dos PDFs + capas originais
 - [ ] Páginas legais (termos, reembolso, privacidade) — aguardando nome legal do vendedor
+- [x] Auditar migração para pagamentos reais — 7 produtos e 7 preços iguais em teste e live; sem descontos; credenciais e destinos existentes preservados
+- [ ] Confirmar teste completo de compra e download em modo de teste — aguardando confirmação da cliente; não iniciar migração adicional antes disso
+- [ ] Adicionar recebimento seguro das notificações no endereço já cadastrado — implementação ausente; preservar destinos e segredos existentes
+- [ ] Adicionar contato público — aguardando canal de atendimento real da cliente
+- [ ] Conferir métodos de pagamento, impostos, moeda de saldo, domínio, link de checkout e repasses — leituras não disponíveis pelas ferramentas conectadas; ajustes exigem escolha da cliente
+- [ ] Verificação e aprovação para pagamentos reais — fora desta etapa; não iniciar sem pedido explícito
