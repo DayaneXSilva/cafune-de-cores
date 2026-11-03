@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
 import logoH from "@/assets/logo-horizontal-cor.webp.asset.json";
+import kitCover from "@/assets/kit-completo.jpg.asset.json";
 import logoV from "@/assets/logo-vertical-cor.png.asset.json";
 import { Placeholder } from "@/components/landing/Placeholder";
 import { covers } from "@/lib/covers";
@@ -406,7 +407,7 @@ function Kit() {
           <p className="mt-1 text-sm font-semibold text-muted-foreground">Pagamento único · Acesso aos 6 PDFs</p>
           <KitBuyButton label="QUERO O KIT COMPLETO" className="mt-6 text-base" />
         </div>
-        <Placeholder label="Mockup da coleção completa" className="aspect-[4/3] rounded-[2rem]" />
+        <img src={kitCover.url} alt="Capas dos 6 volumes do kit completo Cafuné Brinca e Aprende" width={1600} height={1200} loading="lazy" className="aspect-[4/3] w-full rounded-[2rem] border-2 border-grafite object-cover shadow-soft" />
       </div>
     </section>
   );
