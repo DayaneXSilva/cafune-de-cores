@@ -11,3 +11,5 @@
 - [ ] Adicionar contato público — aguardando canal de atendimento real da cliente
 - [ ] Conferir métodos de pagamento, impostos, moeda de saldo, domínio, link de checkout e repasses — leituras não disponíveis pelas ferramentas conectadas; ajustes exigem escolha da cliente
 - [ ] Verificação e aprovação para pagamentos reais — fora desta etapa; não iniciar sem pedido explícito
+- [x] Página focada só no kit completo (R$ 27,90), sem venda avulsa
+- [ ] Ligar botão de compra ao checkout da Hotmart — aguardando link da cliente

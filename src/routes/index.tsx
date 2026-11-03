@@ -6,13 +6,12 @@ import {
   Hand, Plus,
 } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
-import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import logoH from "@/assets/logo-horizontal-cor.webp.asset.json";
 import logoV from "@/assets/logo-vertical-cor.png.asset.json";
 import { Placeholder } from "@/components/landing/Placeholder";
 import { covers } from "@/lib/covers";
 import { previews } from "@/lib/previews";
-import { BuyButton } from "@/components/landing/BuyButton";
+import { KitBuyButton } from "@/components/landing/KitBuyButton";
 import { products, kit, totalPages, toneClass, formatPrice, track, type Product } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
@@ -35,9 +34,9 @@ export const Route = createFileRoute("/")({
 });
 
 const nav = [
-  { href: "#colecao", label: "Livros" },
+  { href: "#colecao", label: "O que vem" },
+  { href: "#kit", label: "Kit completo" },
   { href: "#como-funciona", label: "Como funciona" },
-  { href: "#metodo", label: "Método" },
   { href: "#por-dentro", label: "Por dentro" },
   { href: "#duvidas", label: "Dúvidas" },
 ];
@@ -46,16 +45,15 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <Toaster position="top-center" />
-      <PaymentTestModeBanner />
       <DigitalBanner />
       <Header />
       <main>
         <Hero />
         <Collection />
+        <Kit />
         <HowItWorks />
         <Method />
         <Peek />
-        {kit.enabled && <Kit />}
         <Faq />
         <FinalCta />
       </main>
@@ -87,8 +85,8 @@ function Header() {
               {n.label}
             </a>
           ))}
-          <a href="#colecao" className="sticker rounded-full bg-primary px-4 py-2 font-display text-sm font-semibold text-primary-foreground">
-            Escolher livro
+          <a href="#kit" className="sticker rounded-full bg-primary px-4 py-2 font-display text-sm font-semibold text-primary-foreground">
+            Quero o kit
           </a>
         </nav>
         <button className="md:hidden" aria-label={open ? "Fechar menu" : "Abrir menu"} onClick={() => setOpen(!open)}>
@@ -132,14 +130,13 @@ function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 lg:grid-cols-2 lg:py-20">
         <div>
           <span className="inline-block -rotate-1 rounded-full border-2 border-grafite bg-tiffany px-4 py-1.5 font-display text-xs font-semibold tracking-wider">
-            COLEÇÃO DIGITAL • 6 LIVROS EDUCATIVOS
+            KIT COMPLETO DIGITAL • 6 LIVROS EDUCATIVOS
           </span>
           <h1 className="mt-5 font-display text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
             Pequenas descobertas, <span className="text-lavanda">grandes aprendizados!</span>
           </h1>
           <p className="mt-5 text-lg sm:text-xl">
-            Transforme alguns minutinhos do dia em momentos especiais de aprendizado, criatividade e diversão com a coleção{" "}
-            <strong>Cafuné Brinca e Aprende</strong>.
+            Leve os 6 livros da coleção <strong>Cafuné Brinca e Aprende</strong> em um só kit e transforme alguns minutinhos do dia em momentos de aprendizado, criatividade e diversão.
           </p>
           <p className="mt-3 text-muted-foreground">
             Atividades educativas para crianças de 3 a 6 anos, organizadas por níveis de desenvolvimento, para usar em casa ou na rotina educativa.
@@ -152,12 +149,14 @@ function Hero() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#colecao" className="sticker rounded-full bg-primary px-7 py-4 font-display font-semibold tracking-wide text-primary-foreground">
-              CONHECER OS 6 LIVROS
-            </a>
-            <a href="#como-funciona" className="sticker rounded-full bg-card px-7 py-4 font-display font-semibold tracking-wide">
-              VER COMO FUNCIONA
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div>
+              <p className="text-sm font-bold text-muted-foreground">Kit completo · {totalPages} páginas</p>
+              <p className="font-display text-4xl font-bold text-chiclete">{formatPrice(kit.price)}</p>
+            </div>
+            <KitBuyButton />
+            <a href="#colecao" className="sticker rounded-full bg-card px-7 py-4 font-display font-semibold tracking-wide">
+              VER O QUE VEM NO KIT
             </a>
           </div>
           <p className="mt-6 inline-flex items-center gap-2 rounded-2xl border-2 border-dashed border-chiclete bg-rosa-bebe/40 px-4 py-2.5 text-sm font-bold">
@@ -200,15 +199,13 @@ function ProductCard({ p, onDetails }: { p: Product; onDetails: () => void }) {
             <li key={s} className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold">{s}</li>
           ))}
         </ul>
-        <div className="mt-4 flex items-center justify-between text-sm font-bold">
-          <span>{p.pages} páginas</span>
-          {formatPrice(p.price) && <span className="font-display text-xl text-chiclete">{formatPrice(p.price)}</span>}
+        <div className="mt-4 text-sm font-bold">
+          <span>{p.pages} páginas · incluso no kit</span>
         </div>
         <div className="mt-5 grid gap-2.5">
           <button onClick={onDetails} className="sticker rounded-full bg-card px-5 py-2.5 font-display text-sm font-semibold">
             VER DETALHES
           </button>
-          <BuyButton productId={p.id} priceId={p.priceId} />
         </div>
       </div>
     </article>
@@ -222,13 +219,16 @@ function Collection() {
       <div className="mx-auto max-w-6xl px-4">
         <SectionTitle
           id="colecao-t"
-          title="Um universo de descobertas em 6 livros!"
+          title="O que vem no kit: 6 livros!"
           sub="Cada volume apresenta atividades e brincadeiras que acompanham diferentes momentos do desenvolvimento infantil."
         />
         <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => (
             <ProductCard key={p.id} p={p} onDetails={() => { setDetail(p); track("view_product", { productId: p.id }); }} />
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <KitBuyButton label={`LEVAR OS 6 LIVROS POR ${formatPrice(kit.price)}`} />
         </div>
       </div>
       {detail && (
@@ -241,8 +241,8 @@ function Collection() {
               <p className="mt-3 text-muted-foreground">{detail.description}</p>
               <p className="mt-3 text-sm"><strong>Habilidades:</strong> {detail.skills.join(", ")}.</p>
               <p className="mt-1 text-sm"><strong>{detail.pages} páginas</strong> · Imprimir em A4 · Crianças de 3 a 6 anos</p>
-              <p className="mt-3 text-xs font-bold text-chiclete">Produto digital em PDF. Não acompanha versão física.</p>
-              <BuyButton productId={detail.id} priceId={detail.priceId} className="mt-5" />
+              <p className="mt-3 text-xs font-bold text-chiclete">Vendido somente no kit completo. Produto digital em PDF.</p>
+              <KitBuyButton className="mt-5" />
             </div>
           </div>
         </Modal>
@@ -269,9 +269,9 @@ function Modal({ children, onClose, label }: { children: React.ReactNode; onClos
 
 function HowItWorks() {
   const steps = [
-    { icon: MousePointerClick, t: "Escolha seu livro", d: "Explore os seis volumes e selecione o tema desejado.", c: "bg-lilas-bebe" },
+    { icon: MousePointerClick, t: "Garanta o kit", d: "Clique no botão de compra do kit completo com os 6 livros.", c: "bg-lilas-bebe" },
     { icon: CreditCard, t: "Faça sua compra", d: "Finalize o pedido em um ambiente de pagamento seguro.", c: "bg-rosa-bebe" },
-    { icon: Download, t: "Receba seu PDF", d: "Após a confirmação do pagamento, acesse o arquivo digital do livro adquirido.", c: "bg-azul-bebe" },
+    { icon: Download, t: "Receba seus PDFs", d: "Após a confirmação do pagamento, acesse os 6 arquivos digitais.", c: "bg-azul-bebe" },
     { icon: PartyPopper, t: "Comece a diversão", d: "Abra o PDF no dispositivo ou imprima as atividades em papel A4.", c: "bg-tiffany" },
   ];
   return (
@@ -374,7 +374,7 @@ function Peek() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <BuyButton productId={p.id} priceId={p.priceId} label="QUERO ESTE LIVRO" />
+            <KitBuyButton label="QUERO O KIT COM OS 6 LIVROS" />
           </div>
         </div>
       </div>
@@ -402,8 +402,9 @@ function Kit() {
             {products.map((p) => <li key={p.id}>Vol. {p.volume} — {p.title}</li>)}
           </ul>
           <p className="mt-5 font-bold">{totalPages} páginas · Formato digital PDF</p>
-          {formatPrice(kit.price) && <p className="mt-2 font-display text-3xl font-bold text-chiclete">{formatPrice(kit.price)}</p>}
-          <BuyButton productId={kit.id} priceId={kit.priceId} label="QUERO A COLEÇÃO COMPLETA" className="mt-6 px-7 py-4 text-base" />
+          {formatPrice(kit.price) && <p className="mt-2 font-display text-5xl font-bold text-chiclete">{formatPrice(kit.price)}</p>}
+          <p className="mt-1 text-sm font-semibold text-muted-foreground">Pagamento único · Acesso aos 6 PDFs</p>
+          <KitBuyButton label="QUERO O KIT COMPLETO" className="mt-6 text-base" />
         </div>
         <Placeholder label="Mockup da coleção completa" className="aspect-[4/3] rounded-[2rem]" />
       </div>
@@ -415,8 +416,8 @@ const faqs = [
   ["Os livros são físicos?", "Não. Todos os volumes são produtos digitais em PDF. Não há envio de livros impressos."],
   ["Posso imprimir as atividades?", "Sim. Os materiais foram preparados para impressão em papel A4, conforme as orientações de cada volume."],
   ["Para qual idade são indicados?", "A coleção Cafuné Brinca e Aprende apresenta atividades organizadas para crianças de 3 a 6 anos."],
-  ["Preciso comprar todos os livros?", "Não. Você pode escolher um volume individualmente ou adquirir a coleção completa, caso a oferta do kit esteja disponível."],
-  ["Como recebo meu livro?", "Após a confirmação do pagamento, o arquivo digital fica disponível pelo método de entrega configurado na loja."],
+  ["Posso comprar só um livro?", "Não. Os livros são vendidos juntos, no kit completo com os 6 volumes."],
+  ["Como recebo meus livros?", "Após a confirmação do pagamento, os arquivos digitais ficam disponíveis pelo método de entrega da plataforma de compra."],
   ["Posso usar no celular ou computador?", "Os arquivos são PDFs e podem ser abertos em dispositivos com leitor compatível. Algumas atividades foram pensadas especialmente para impressão."],
   ["Os livros possuem atividades alinhadas à BNCC?", "Sim. Os materiais indicam campos de experiências e habilidades relacionados à BNCC."],
 ];
@@ -448,10 +449,9 @@ function FinalCta() {
       <div className="mx-auto max-w-3xl px-4 text-center">
         <img src={logoV.url} alt="" className="mx-auto h-28 w-auto" loading="lazy" />
         <h2 className="mt-6 font-display text-3xl font-bold sm:text-5xl">O próximo aprendizado pode começar com uma brincadeira!</h2>
-        <p className="mt-4 text-lg">Escolha um livro, descubra as atividades e crie momentos especiais de aprendizado com a criança.</p>
-        <a href="#colecao" className="sticker mt-8 inline-flex rounded-full bg-primary px-8 py-4 font-display text-lg font-semibold tracking-wide text-primary-foreground">
-          ESCOLHER MEU LIVRO DIGITAL
-        </a>
+        <p className="mt-4 text-lg">Leve os 6 livros do kit completo e crie momentos especiais de aprendizado com a criança.</p>
+        <p className="mt-4 font-display text-4xl font-bold text-chiclete">{formatPrice(kit.price)}</p>
+        <KitBuyButton label="GARANTIR MEU KIT DIGITAL" className="mt-6 px-8 text-lg" />
         <p className="mt-5 text-sm font-bold">Livros digitais em PDF • Não acompanha versão física.</p>
       </div>
     </section>
