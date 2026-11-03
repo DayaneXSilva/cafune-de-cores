@@ -12,4 +12,7 @@ describe("catálogo", () => {
   it("kit fica oculto até o checkout estar configurado", () => {
     expect(kit.enabled && kit.priceId == null).toBe(false);
   });
+  it("kit completo custa R$ 27,90", () => {
+    expect(kit.price).toBe(2790);
+  });
 });
