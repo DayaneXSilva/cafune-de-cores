@@ -90,13 +90,15 @@ export const products: Product[] = [
   },
 ];
 
+// Venda somente do kit completo (os volumes não são vendidos avulsos).
 export const kit = {
   id: "colecao-completa",
   title: "Coleção completa Cafuné Brinca e Aprende",
-  // O kit só é oferecido quando houver checkout e entrega configurados.
   enabled: true,
   priceId: "colecao_completa_pdf" as string | null,
-  price: 4990 as number | null,
+  price: 2790 as number | null,
+  // Link do checkout na Hotmart. null = ainda não informado pela cliente.
+  checkoutUrl: null as string | null,
 };
 
 export const totalPages = products.reduce((s, p) => s + p.pages, 0);
