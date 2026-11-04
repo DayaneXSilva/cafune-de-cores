@@ -96,6 +96,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap",
       },
     ],
+    scripts: [
+      { children: `window.pixelId="6aeb1318f53436fff9d077ef";(function(){var s=document.createElement("script");s.src="https://cdn.utmify.com.br/scripts/pixel/pixel.js";s.async=true;s.defer=true;document.head.appendChild(s);})();` },
+      { src: "https://cdn.utmify.com.br/scripts/utms/latest.js", "data-utmify-prevent-xcod-sck": "", "data-utmify-prevent-subids": "", async: true, defer: true },
+      { children: `(function(){var css="[data-lovable-badge],.lovable-badge{display:none !important}";var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);})();` },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
