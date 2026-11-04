@@ -3,7 +3,7 @@ import { ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { kit, track } from "@/lib/products";
 
-/** Botão único de compra: leva ao checkout do kit completo (Hotmart). */
+/** Botão único de compra: leva ao checkout do kit completo (Cakto). */
 export function KitBuyButton({ label = "QUERO O KIT COMPLETO", className }: { label?: string; className?: string }) {
   const cls = cn(
     "sticker inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-4 font-display font-semibold tracking-wide text-primary-foreground",

@@ -18,8 +18,8 @@ export const Route = createFileRoute("/termos")({
       <h2>Produto</h2>
       <p>Vendemos exclusivamente livros de atividades infantis <strong>digitais em PDF</strong>. Nenhum produto físico é enviado. O arquivo é liberado para download após a confirmação do pagamento.</p>
       <h2>Revendedor e pagamentos</h2>
-      <p>Nosso processo de pedidos é conduzido pelo nosso revendedor online Paddle.com. A Paddle.com é a Merchant of Record de todos os nossos pedidos. A Paddle presta o atendimento a todas as dúvidas de clientes e trata as devoluções.</p>
-      <p>Pagamento, cobrança, impostos, cancelamentos e reembolsos seguem os <a href="https://www.paddle.com/legal/checkout-buyer-terms" target="_blank" rel="noopener noreferrer">Termos do Comprador da Paddle</a>.</p>
+      <p>Nosso processo de pedidos é conduzido pela Cakto, nossa plataforma de checkout. A Cakto processa o pagamento, o recebimento e a emissão das notas fiscais dos pedidos.</p>
+      <p>Pagamento, cobrança, cancelamentos e reembolsos seguem os termos da Cakto, disponíveis em <a href="https://cakto.com.br" target="_blank" rel="noopener noreferrer">cakto.com.br</a>.</p>
       <h2>Licença de uso</h2>
       <p>Concedemos uma licença pessoal, não exclusiva e intransferível para imprimir e usar os PDFs em casa ou na sua própria sala de aula. É proibido revender, redistribuir, compartilhar publicamente ou alterar os arquivos para venda.</p>
       <h2>Uso indevido</h2>

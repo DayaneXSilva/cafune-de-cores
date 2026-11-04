@@ -19,8 +19,7 @@ export const Route = createFileRoute("/reembolso")({
       <h2>Garantia de 30 dias</h2>
       <p>Oferecemos garantia de reembolso de 30 dias. Se não ficar satisfeito com a compra, você pode pedir o reembolso integral em até 30 dias a partir da data do pedido.</p>
       <h2>Como pedir</h2>
-      <p>Os reembolsos são processados pela nossa revendedora, a Paddle. Para pedir, acesse <a href="https://paddle.net" target="_blank" rel="noopener noreferrer">paddle.net</a> com o e-mail usado na compra, ou fale com a gente pelo WhatsApp <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">{WHATSAPP}</a>.</p>
-      <p>Consulte também a <a href="https://www.paddle.com/legal/refund-policy" target="_blank" rel="noopener noreferrer">política de reembolso da Paddle</a>.</p>
+      <p>Os reembolsos são processados pela Cakto, nossa plataforma de checkout. Para pedir, fale com a gente pelo WhatsApp <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">{WHATSAPP}</a> com o e-mail usado na compra.</p>
     </LegalPage>
   ),
 });

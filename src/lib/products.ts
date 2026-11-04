@@ -97,8 +97,8 @@ export const kit = {
   enabled: true,
   priceId: "colecao_completa_pdf" as string | null,
   price: 2790 as number | null,
-  // Link do checkout na Hotmart. null = ainda não informado pela cliente.
-  checkoutUrl: null as string | null,
+  // Link do checkout na Cakto. null = ainda não informado pela cliente.
+  checkoutUrl: "https://pay.cakto.com.br/8mzcyo2_1277510" as string | null,
 };
 
 export const totalPages = products.reduce((s, p) => s + p.pages, 0);
