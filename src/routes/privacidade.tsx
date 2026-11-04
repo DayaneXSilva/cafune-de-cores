@@ -21,11 +21,11 @@ export const Route = createFileRoute("/privacidade")({
         <li><strong>Mensagens de atendimento</strong> (ex.: WhatsApp) — para responder suas dúvidas (execução de contrato / legítimo interesse).</li>
         <li><strong>Dados técnicos</strong> como endereço IP, navegador e dispositivo — para segurança, prevenção de fraude e funcionamento do site (legítimo interesse).</li>
       </ul>
-      <p>Os dados de pagamento são coletados diretamente pela Paddle, e não por nós.</p>
+      <p>Os dados de pagamento são coletados diretamente pela Cakto, e não por nós.</p>
       <h2>Com quem compartilhamos</h2>
       <ul>
         <li>Prestadores de serviço, como hospedagem do site;</li>
-        <li>Paddle, nossa Merchant of Record, para a venda, pagamentos, impostos e emissão de notas;</li>
+        <li>Cakto, nossa plataforma de checkout, para a venda, pagamentos e emissão de notas;</li>
         <li>Assessores profissionais (jurídico, contábil);</li>
         <li>Autoridades, quando exigido por lei.</li>
       </ul>
