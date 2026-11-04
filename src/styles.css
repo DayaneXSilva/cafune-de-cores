@@ -183,3 +183,9 @@
 @utility animate-floaty { animation: floaty 5s ease-in-out infinite; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .animate-floaty { animation: none; } }
+
+/* Ocultar selo da Lovable em todo o projeto */
+[data-lovable-badge],
+.lovable-badge {
+  display: none !important;
+}
