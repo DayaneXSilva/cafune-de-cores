@@ -12,4 +12,5 @@
 - [ ] Conferir métodos de pagamento, impostos, moeda de saldo, domínio, link de checkout e repasses — leituras não disponíveis pelas ferramentas conectadas; ajustes exigem escolha da cliente
 - [ ] Verificação e aprovação para pagamentos reais — fora desta etapa; não iniciar sem pedido explícito
 - [x] Página focada só no kit completo (R$ 27,90), sem venda avulsa
-- [ ] Ligar botão de compra ao checkout da Hotmart — aguardando link da cliente
+- [x] Ligar botão de compra ao checkout da Cakto — https://pay.cakto.com.br/8mzcyo2_1277510
+- [ ] Conferir entrega dos PDFs pela Cakto (área de membros/e-mail) e decidir o que fazer com a página /obrigado, que ainda consulta o sistema antigo
