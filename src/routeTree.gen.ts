@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as ProfessorasRouteImport } from './routes/professoras'
 import { Route as ReembolsoRouteImport } from './routes/reembolso'
 import { Route as TermosRouteImport } from './routes/termos'
 
@@ -30,6 +31,11 @@ const PrivacidadeRoute = PrivacidadeRouteImport.update({
   path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfessorasRoute = ProfessorasRouteImport.update({
+  id: '/professoras',
+  path: '/professoras',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReembolsoRoute = ReembolsoRouteImport.update({
   id: '/reembolso',
   path: '/reembolso',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/obrigado': typeof ObrigadoRoute
   '/privacidade': typeof PrivacidadeRoute
+  '/professoras': typeof ProfessorasRoute
   '/reembolso': typeof ReembolsoRoute
   '/termos': typeof TermosRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/obrigado': typeof ObrigadoRoute
   '/privacidade': typeof PrivacidadeRoute
+  '/professoras': typeof ProfessorasRoute
   '/reembolso': typeof ReembolsoRoute
   '/termos': typeof TermosRoute
 }
@@ -60,21 +68,42 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/obrigado': typeof ObrigadoRoute
   '/privacidade': typeof PrivacidadeRoute
+  '/professoras': typeof ProfessorasRoute
   '/reembolso': typeof ReembolsoRoute
   '/termos': typeof TermosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/obrigado' | '/privacidade' | '/reembolso' | '/termos'
+  fullPaths:
+    | '/'
+    | '/obrigado'
+    | '/privacidade'
+    | '/professoras'
+    | '/reembolso'
+    | '/termos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/obrigado' | '/privacidade' | '/reembolso' | '/termos'
-  id: '__root__' | '/' | '/obrigado' | '/privacidade' | '/reembolso' | '/termos'
+  to:
+    | '/'
+    | '/obrigado'
+    | '/privacidade'
+    | '/professoras'
+    | '/reembolso'
+    | '/termos'
+  id:
+    | '__root__'
+    | '/'
+    | '/obrigado'
+    | '/privacidade'
+    | '/professoras'
+    | '/reembolso'
+    | '/termos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ObrigadoRoute: typeof ObrigadoRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
+  ProfessorasRoute: typeof ProfessorasRoute
   ReembolsoRoute: typeof ReembolsoRoute
   TermosRoute: typeof TermosRoute
 }
@@ -102,6 +131,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/professoras': {
+      id: '/professoras'
+      path: '/professoras'
+      fullPath: '/professoras'
+      preLoaderRoute: typeof ProfessorasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reembolso': {
       id: '/reembolso'
       path: '/reembolso'
@@ -123,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ObrigadoRoute: ObrigadoRoute,
   PrivacidadeRoute: PrivacidadeRoute,
+  ProfessorasRoute: ProfessorasRoute,
   ReembolsoRoute: ReembolsoRoute,
   TermosRoute: TermosRoute,
 }
