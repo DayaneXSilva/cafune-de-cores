@@ -11,7 +11,7 @@ import { KitBuyButton } from "@/components/landing/KitBuyButton";
 import { products, kit, totalPages, toneClass, formatPrice, track } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
-const TITLE = "Recupere seus domingos · Kit Cafuné para professoras de educação infantil";
+const TITLE = "Recupere seus domingos · Kit Cafuné para professores e educadores da educação infantil";
 const DESC =
   "273 páginas de atividades prontas, por idade e por eixo, alinhadas à BNCC. 6 livros em PDF por R$ 27,90, pagamento único.";
 const WA = "https://wa.me/5511951042381";
@@ -89,7 +89,7 @@ function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-14 lg:grid-cols-2 lg:py-20">
         <div>
           <span className="inline-block -rotate-1 rounded-full border-2 border-grafite bg-tiffany px-4 py-1.5 font-display text-xs font-semibold tracking-wider">
-            PARA PROFESSORAS DE EDUCAÇÃO INFANTIL
+            PARA PROFESSORES E EDUCADORES DA EDUCAÇÃO INFANTIL
           </span>
           <h1 className="mt-5 font-display text-5xl font-bold leading-[1.05] lg:text-6xl">
             Recupere seus <span className="text-lavanda">domingos.</span>
@@ -400,7 +400,7 @@ const faqs: [string, string][] = [
   ["Dá para usar na creche, com crianças de 3 anos?", "Sim. O nível Semente foi pensado para 3 anos. Ajuste o tempo e o apoio a cada criança."],
   ["Recebo nota fiscal ou comprovante?", "A compra é processada pela Cakto, que cuida da emissão de notas fiscais."],
   ["A escola pode comprar?", "Sim. Fale com a gente pelo WhatsApp para tirar dúvidas sobre compra para a equipe."],
-  ["Posso compartilhar o PDF com outras professoras?", "O kit é vendido por professora. Se sua colega quiser usar, ela pode adquirir o dela. Assim o material continua acessível para todas."],
+  ["Posso compartilhar o PDF com outros professores?", "O kit é vendido por pessoa. Se um colega quiser usar, ele pode adquirir o dele. Assim o material continua acessível para todos."],
   ["Como recebo o material?", "Logo após o pagamento por PIX ou cartão, o acesso chega no seu e-mail. Os arquivos são PDFs para imprimir."],
   ["E se eu não gostar?", `Você tem garantia de ${GARANTIA} dias, com reembolso integral pela Cakto.`],
 ];
